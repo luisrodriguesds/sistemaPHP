@@ -4,16 +4,8 @@
 
 	//inicia Sistema
 	function init(){
-		//session_cache_expire(1);
-		$lifetime=3600*6;
-		session_start();
-		setcookie(session_name(),session_id(),time()+$lifetime);
-
-		//para o Localhhost
-		// $configFile = $_SERVER['DOCUMENT_ROOT'].'/stratus/netClass/sistema/config.php';
-
-		//Para o remoto
-		$configFile = '/home/luis/dev/netclass/ava.git/sistema/config.php';
+		
+		$configFile =  $_SERVER['DOCUMENT_ROOT'].'/sistema/config.php';
 
 		//Chama config
 		if(!file_exists($configFile))
@@ -36,5 +28,6 @@
 		else
 			require_once FLIE_DATABASE;
 		date_default_timezone_set('America/Fortaleza');
+		
 
 	}

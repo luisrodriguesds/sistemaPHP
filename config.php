@@ -1,23 +1,25 @@
 <?php
-
+	$bd = parse_ini_file(__DIR__ . "/configuracao.ini", true);
+	$bd = $bd['BANCO_DE_DADOS'];
+	
 	//LOCAL
 	//BANCO DE DADOS
-	define('HOSTNAME', 'localhost');
-	define('USERNAME', 'root');
-	define('PASSWORD', '');
-	define('DATABASE', 'banco');
-	define('PORT', '3306');
-	define('PREFIX', 'pre');
+	define('HOSTNAME', $bd['servidor']);
+	define('USERNAME', $bd['usuario']);
+	define('PASSWORD', $bd['senha']);
+	define('DATABASE', $bd['banco']);
+	define('PORT', $bd['porta']);
+	define('PREFIX', '');
 	define('CHARSET', 'utf8');
 
-	define('URLBASE', 'http://localhost/sua_pasta/');
+	define('URLBASE', $bd['porta']);
 
 	//URLS
-	define('URL_BASE', 'http://localhost/sua_pasta/');
+	define('URL_BASE', $bd['porta']);
 	define('URL_PAINEL', URL_BASE.'painel/');
 
 	//DIRS
-	define('DIR_BASE', $_SERVER['DOCUMENT_ROOT'].'/sua_pasta/');
+	define('DIR_BASE', $_SERVER['DOCUMENT_ROOT'].'/');
 	define('DIR_SYSTEM', DIR_BASE.'sistema/');
 	define('DIR_IMG', DIR_BASE.'images/');
 

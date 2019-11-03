@@ -63,7 +63,7 @@
 
 	//Deletar
 	function DBDelete($link, $table, $where = null){
-		$table 	= PREFIX.'_'.$table;
+		$table 	= $table;
 		$where  = ($where) ? " WHERE {$where}" : null;
 
 		$query = "DELETE FROM {$table}{$where}";
@@ -77,7 +77,7 @@
 		}
 		$filtro = implode(", ", $filtro);
 
-		$table 	= PREFIX.'_'.$table;
+		$table 	= $table;
 		$campo 	= $data;
 		$where  = ($where) ? " WHERE {$where}" : null;
 
@@ -87,7 +87,7 @@
 
 	//Selecionar no banco de bados
 	function DBread($link, $table, $params = null, $fields = '*'){
-		$table 	= PREFIX.'_'.$table;
+		$table 	= $table;
 		$params = ($params) ? " {$params}" : null;
 		$query 	= "SELECT {$fields} FROM {$table}{$params}";
 		$result = DBexecute($link, $query);
@@ -105,7 +105,7 @@
 
 	//gravar no banco
 	function DBcreate($link, $table, array $data, $insertId = true){
-		$table 	= PREFIX.'_'.$table;
+		$table 	= $table;
 		$data 	= $data;
 		$campos = implode(", ", array_keys($data));
 		$valors = "'".implode("', '", $data)."'";
